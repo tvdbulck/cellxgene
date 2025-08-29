@@ -15,12 +15,14 @@ RUN pwd
 RUN echo "ls:"
 RUN ls
 
-RUN echo "ls /example-dataset:"
-RUN ls /example-dataset
+RUN echo "ls /run:"
+RUN ls /run
 
-RUN echo "ls /data:"
-RUN ls /data
+RUN echo "ls /mnt:"
+RUN ls /mnt
 
+RUN echo "ls /home:"
+RUN ls /home
 
 #ENTRYPOINT ["cellxgene"]
 
