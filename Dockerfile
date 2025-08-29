@@ -8,7 +8,20 @@ RUN apt-get update && \
     python3 -m pip install --upgrade pip && \
     pip3 install cellxgene
 
-#WORKDIR /
+WORKDIR /
+RUN echo "pwd:"
+RUN pwd
+
+RUN echo "ls:"
+RUN ls
+
+RUN echo "ls /example-dataset:"
+RUN ls /example-dataset
+
+RUN echo "ls /data:"
+RUN ls /data
+
+
 #ENTRYPOINT ["cellxgene"]
 
 #COPY /example-dataset /data
