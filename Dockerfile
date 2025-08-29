@@ -8,6 +8,9 @@ RUN apt-get update && \
     python3 -m pip install --upgrade pip && \
     pip3 install cellxgene
 
+WORKDIR /
+COPY /example-dataset /data
+
 #ENTRYPOINT ["cellxgene"]
 ENTRYPOINT ["launch", "--host 0.0.0.0", "--port 5005", "--no-browser", "/home/data/pbmc3k.h5ad"]
 
