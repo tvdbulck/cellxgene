@@ -14,6 +14,6 @@ RUN echo "ls /data:"
 RUN ls /data
 
 #ENTRYPOINT ["cellxgene"]
-ENTRYPOINT ["cellxgene", "launch", "--host", "0.0.0.0", "--port", "5005", "--no-browser", "/data/pbmc3k.h5ad"]
+ENTRYPOINT ["cellxgene", "launch", "--host", "0.0.0.0", "--port", "5005", "/data/pbmc3k.h5ad"]
 
 
