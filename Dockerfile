@@ -8,26 +8,12 @@ RUN apt-get update && \
     python3 -m pip install --upgrade pip && \
     pip3 install cellxgene
 
-WORKDIR /
-RUN echo "pwd:"
-RUN pwd
+ADD https://github.com/tvdbulck/cellxgene/blob/main/example-dataset/pbmc3k.h5ad /data/pbmc3k.h5ad
 
-RUN echo "ls:"
-RUN ls
-
-RUN echo "ls /run:"
-RUN ls /run
-
-RUN echo "ls /mnt:"
-RUN ls /mnt
-
-RUN echo "ls /home:"
-RUN ls /home
+RUN echo "ls /data:"
+RUN ls /data
 
 #ENTRYPOINT ["cellxgene"]
+ENTRYPOINT ["cellxgene", "launch", "--host", "0.0.0.0", "--port", "5005", "--no-browser", "/data/pbmc3k.h5ad"]
 
-#COPY /example-dataset /data
-ENTRYPOINT ["launch", "--host", "0.0.0.0", "--port", "5005", "--no-browser", "/example-dataset/pbmc3k.h5ad"]
-
-#ENTRYPOINT ["launch", "--host 0.0.0.0", "--port 5005", "--no-browser", "/example-dataset/pbmc3k.h5ad"]
 
